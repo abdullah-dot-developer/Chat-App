@@ -5,16 +5,16 @@ import { getRandomEmoji } from "../utils/emojis";
 
 const Conversations = () => {
   const { loading, conversations } = useGetConversations();
-  // console.log(conversations);
+  // console.log(conversations); //Array
   return (
     <div className="py-2 flex flex-col overflow-auto">
       {conversations.map((conversation, idx) => {
         return (
           <Conversation
-            key={conversation._id}
+            key={conversation?._id}
             conversation={conversation}
             emoji={getRandomEmoji()}
-            lastIdx={idx === conversation.length - 1}
+            lastIdx={idx === conversation?.length - 1}
           />
         );
         // console.log(conversation, idx);
